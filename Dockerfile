@@ -33,13 +33,14 @@ RUN apk update && apk add --no-cache \
 	spamassassin \
 	&& rm -rf /var/cache/apk/*
 
-# create user & directories
+# create user & group
 RUN addgroup -S ${GROUP} && \
     adduser -S \
             -D -G ${GROUP} \
             -h ${SADIR} \
             ${USER}
 
+# copy conf & init spamassassin
 COPY ./conf/ ${SAETC}/
 COPY ./scripts/ /
 RUN /init.sh

@@ -1,19 +1,4 @@
 #!/bin/sh
-#
-# Dockerfile for DockerHub automatic build of postfwd - http://postfwd.org/docker
-#
-# If you want to rebuild it, go to the top directory (usually 'cd ..') and type in:
-#
-#	docker build -f docker/Dockerfile-autobuild -t postfwd:mybuild .
-#
-# To run a container from it, use:
-#
-#	docker run -it postfwd:mybuild
-#
-# or with more options (postfwd2 on port 10050, postfwd.cf in /path/to/ruleset):
-#
-#	docker run -it -e PROG=postfwd2 -e PORT=10050 -v /path/to/ruleset:/etc/postfwd:ro postfwd:mybuild
-#
 
 ## RUNTIME ARGS
 . `dirname $0`/basics.sh
@@ -50,5 +35,6 @@ chown -R ${USER}:${GROUP} ${SADIR} ${SADIR}
 	}
 }
 
+# needed during build phase
 exit 0
 
