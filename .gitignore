@@ -1,0 +1,4 @@
+samples/
+*.temp
+*.tmp
+*.swp
