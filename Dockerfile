@@ -28,6 +28,7 @@ ENV SAETC=/etc/mail/spamassassin
 RUN apk update && apk add --no-cache \
 	perl-mail-spamassassin \
 	spamassassin-client \
+	spamassassin-compiler \
 	razor \
 	spamassassin \
 	&& rm -rf /var/cache/apk/*
@@ -41,6 +42,7 @@ RUN addgroup -S ${GROUP} && \
 
 COPY ./conf/ ${SAETC}/
 COPY ./scripts/ /
+RUN /init.sh
 
 # open port
 EXPOSE ${PORT}

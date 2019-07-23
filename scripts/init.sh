@@ -20,6 +20,7 @@
 SAUPDATE=0
 
 # create directory
+umask 022
 mkdir -p ${SADIR}/.razor
 
 # razor update
@@ -40,8 +41,14 @@ sa-update -v --nogpg \
 chown -R ${USER}:${GROUP} ${SADIR} ${SADIR}
 
 # restart spamd, if required
-[ "$SAUPDATE" -eq 1 -a -s ${SAPID} ] && {
-	echo "RESTARTING SPAMASSASSIN"
-	kill -HUP `cat ${SAPID}`
+[ "${SAUPDATE}" -eq 1 ] && {
+	echo "RECOMPILING RULESET"
+	sa-compile
+	[ -s ${SAPID} ] && {
+		echo "RESTARTING SPAMASSASSIN"
+		kill -HUP `cat ${SAPID}`
+	}
 }
+
+exit 0
 
