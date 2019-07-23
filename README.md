@@ -18,9 +18,9 @@ docker exec <container-name> /init.sh
 ```
 ```bash
 # test result only
-cat HAM.txt | spamc -d 127.0.0.1 -l -p 786 -s 4096000 --retry-sleep 30 -c
+cat samples/HAM.txt | spamc -c -d 127.0.0.1 -l -p 786 -s 4096000 --retry-sleep 30
 
 # test full report
-cat HAM.txt | spamc -d 127.0.0.1 -l -p 786 -s 4096000 --retry-sleep 30 -R
+cat samples/HAM.txt | spamc -R -d 127.0.0.1 -l -p 786 -s 4096000 --retry-sleep 30
 ```
 

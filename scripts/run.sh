@@ -3,7 +3,7 @@
 ## RUNTIME ARGS
 . `dirname $0`/basics.sh
 
-spamd	--username ${USER} --groupname ${GROUP} \
+exec spamd	--username ${USER} --groupname ${GROUP} \
 	--port ${PORT} \
 	--nouser-config --syslog stderr \
 	--pidfile ${SAPID} \
