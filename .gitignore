@@ -1,4 +1,5 @@
 samples/
+vol/
 *.temp
 *.tmp
 *.swp

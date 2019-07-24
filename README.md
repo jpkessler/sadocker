@@ -10,7 +10,7 @@ Yet Another Spamassassin Docker
 docker build -f Dockerfile -t ruvspamassassin:mybuild .
 
 # run container
-docker run -p 127.0.0.1:786:783 -it ruvspamassassin:mybuild
+docker run -p 127.0.0.1:786:783 -v `pwd`/vol/spamassassin:/var/lib/spamassassin -it ruvspamassassin:mybuild
 ```
 ```bash
 # update ruleset

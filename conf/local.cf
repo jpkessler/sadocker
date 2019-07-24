@@ -93,16 +93,10 @@ razor_config /var/lib/spamassassin/.razor/razor-agent.conf
 #      ........................................................................
 clear_report_template
 if can(Mail::SpamAssassin::Conf::feature_yesno_takes_args)
-report Spam detection software, has_YESNO(, NOT)_ identified this incoming email
-report as_YESNO( possible,)_ spam.  The original message has been attached to this
-report so you can view it or label
+report RESULT has_YESNO(, NOT)_  as_YESNO( possible,)_ spam.
 else
-report Spam detection software, 
-report identified this incoming email as possible spam.  The original message
-report has been attached to this so you can view it (if it isn't spam) or label
+report RESULT: SPAM
 endif
-report similar future email.  If you have any questions, see
-report _CONTACTADDRESS_ for details.
 report
 report Content analysis details:   (_SCORE_ points, _REQD_ required)
 report
